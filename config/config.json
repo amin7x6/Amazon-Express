@@ -5,13 +5,11 @@
     "dialect": "postgres"
   },
   "test": {
-    "password": null,
     "database": "aae_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "password": null,
     "database": "aae_prod",
     "host": "127.0.0.1",
     "dialect": "postgres"
