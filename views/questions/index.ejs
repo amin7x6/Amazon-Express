@@ -4,7 +4,11 @@
       <% for (let question of questions) { %>
         <div class="col-md-4">
           <ul class="questions-list">
-            <li><h3><%= question.title %></h3></li>
+            <li>
+              <a href="/questions/<%= question.id %>">
+                <h3><%= question.title %></h3>
+              </a>
+            </li>
           </ul>
           <hr>
         </div>

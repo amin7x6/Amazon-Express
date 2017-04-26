@@ -19,4 +19,16 @@ router.get('/', function (request, response, next) {
   // All Sequelize query methods return a promise
 })
 
+//Question.get#show URL: /question/:id VERB:GET
+// for a url `/question/99`, the req.params object will be equal to {id: '99'}
+router.get('/:id', function (req, res){
+  const id = req.params.id
+
+  Question
+    .findById(id)
+    .then(function (question){
+      res.render('questions/show', {question: question})
+    })
+})
+
 module.exports = router;
