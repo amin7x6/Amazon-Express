@@ -2,18 +2,27 @@
 <div class="col-md-8">
   <h1><%= question.title %></h1><hr>
   <p><%= question.description %></p>
-  <p><strong>Created At :</strong><%= question.createdAt %></p><br>
+  <p><strong>Created At :</strong> <%= question.createdAt %></p><br>
 
   <hr><br>
     <h2>Answers</h2>
     <form action="/questions/<%= question.id %>/answers" method="post">
         <div class="form-group">
-            <textarea class="form-control" name="content" rows="7" cols="40"></textarea>
+            <textarea class="form-control" name="content" rows="5"></textarea>
         </div>
         <div class="form-group">
           <input class="btn btn-md btn-primary" type="submit" name="submit" value="Submit">
         </div>
-    </form>
+    </form><hr><br>
+
+    <ul>
+      <% for (let answer of answers) {%>
+          <li>
+            <h3><%= answer.content %></h3>
+            <p><strong>Created At :</strong> <%= answer.createdAt %></p>
+          </li><hr>
+        <% } %>
+    </ul>
 </div>
 
 <%- include('../partials/footer') %>
