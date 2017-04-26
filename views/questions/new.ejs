@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+
+<div class="col-md-4 col-md-offset-4">
+  <h1 class="text-center">New Question</h1><hr><br><br>
+  <form action="/questions" method="post">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input class="form-control" type="text" id="title" name="title">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="description" name="description"></textarea>
+    </div>
+    <div class="form-group">
+      <input class="btn btn-md btn-primary" type="submit" name="submit" value="Submit"/>
+    </div>
+  </form>
+</div>
+
+<%- include('../partials/footer') %>

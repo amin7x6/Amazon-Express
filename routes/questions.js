@@ -7,7 +7,7 @@ const Question = require('../models/index').Question;
 
 router.get('/', function (request, response, next) {
   Question
-    .findAll() // this returns promise...
+    .findAll({order: [['createdAt', 'DESC'], ['updatedAt', 'DESC']] }) // this returns promise...
     .then(function (questions) { // allowing us to use .then
       // the path of the template that response.render takes
       // is relative to the view/ folder by default
@@ -17,6 +17,27 @@ router.get('/', function (request, response, next) {
       // the rendered template as variables
     });
   // All Sequelize query methods return a promise
+})
+
+
+router.get('/new', function(req, res){
+    const question = Question.build();
+
+    res.render('questions/new', {question: question});
+})
+
+router.post('/', function (req, res) {
+  const questionParams = {};
+  // questionParams.title = req.body.title;
+  // questionParams.description = req.body.description;
+
+  const {title, description} = req.body;
+
+  Question
+    .create({title: title, description: description })
+    .then(function (question){
+      res.redirect('/questions');
+    })
 })
 
 //Question.get#show URL: /question/:id VERB:GET

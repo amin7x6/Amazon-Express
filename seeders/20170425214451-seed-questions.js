@@ -11,7 +11,7 @@ const questions = Array
     return Question.create({
       title: `${faker.hacker.adjective()} ${faker.hacker.noun()}`,
       description: faker.hacker.phrase()
-    }).catch(function (error) {console.log(error)})
+    }).catch(function (error) {console.log('Duplicate Question')})
   })
 
 module.exports = {
