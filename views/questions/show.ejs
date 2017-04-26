@@ -1,6 +1,19 @@
 <%- include('../partials/header') %>
+<div class="col-md-8">
   <h1><%= question.title %></h1><hr>
   <p><%= question.description %></p>
   <p><strong>Created At :</strong><%= question.createdAt %></p><br>
-  <a href="/questions">Back</a>
+
+  <hr><br>
+    <h2>Answers</h2>
+    <form action="/questions/<%= question.id %>/answers" method="post">
+        <div class="form-group">
+            <textarea class="form-control" name="content" rows="7" cols="40"></textarea>
+        </div>
+        <div class="form-group">
+          <input class="btn btn-md btn-primary" type="submit" name="submit" value="Submit">
+        </div>
+    </form>
+</div>
+
 <%- include('../partials/footer') %>

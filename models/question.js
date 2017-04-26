@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        question.hasMany(models.Answer);
+        Question.hasMany(models.Answer);
         // List of instance methods added to Question by
         // .hasMany
         // Question#getAnswers
